@@ -4,6 +4,7 @@ import './App.css';
 import logo from './logo.svg';
 
 import AddUser from './components/AddUser/AddUser';
+import UserList from './components/UserList/UserList';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -31,6 +32,7 @@ function App() {
           />
 
           {/* List */}
+          {users.length > 0 && <UserList users={users} />}
         </header>
       </div>
     </>
