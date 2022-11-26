@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 /**
  * Returns the Add User Form Component.
@@ -6,7 +6,7 @@ import { useState } from "react";
  * @returns The Add User Form Component.
  */
 const AddUser = ({ onSaveUserData }) => {
-    const [age, setAge] = useState(0);
+    const [age, setAge] = useState("");
     const [username, setUsername] = useState("");
 
     /**
@@ -45,6 +45,9 @@ const AddUser = ({ onSaveUserData }) => {
         }
 
         onSaveUserData(userData);
+        
+        setAge("");
+        setUsername("");
 
         // console.log(`Name: ${username} Age: ${age}`, "AddUser.js");
     };
@@ -58,6 +61,8 @@ const AddUser = ({ onSaveUserData }) => {
                         type="text"
                         id="username"
                         name="username"
+                        autoFocus={true}
+                        value={username}
                         onChange={userNameHandler}
                     />
 
@@ -68,6 +73,7 @@ const AddUser = ({ onSaveUserData }) => {
                         min="1"
                         id="age"
                         name="age"
+                        value={age}
                         type="number"
                         onChange={userAgeHandler}
                     />

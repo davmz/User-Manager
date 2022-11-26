@@ -6,10 +6,14 @@
 const UserList = ({ users }) => {
     return (
         <>
-            <div>
+            <ul>
                 {/* Loop through object and pass values to another child component */}
-                <p>{users[0].username} {users[0].age}</p>
-            </div>
+                {users.map((user) => (
+                    <p key={`${user.username} ${user.age}`} >
+                        {user.username} ({user.age} {user.age > 1 ? 'years' : 'year'} old)
+                    </p>
+                ))}
+            </ul>
         </>
     );
 }
