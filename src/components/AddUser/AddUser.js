@@ -5,7 +5,7 @@ import { useState } from "react";
  *
  * @returns The Add User Form Component.
  */
-const AddUser = () => {
+const AddUser = ({ onSaveUserData }) => {
     const [age, setAge] = useState(0);
     const [username, setUsername] = useState("");
 
@@ -18,7 +18,7 @@ const AddUser = () => {
         setAge(event.target.value);
 
         // console.log(event.target.value, "AddUser.js");
-    } 
+    };
 
     /**
      * Handles the onChange of username input.
@@ -29,7 +29,7 @@ const AddUser = () => {
         setUsername(event.target.value);
 
         // console.log(event.target.value, "AddUser.js");
-    }
+    };
 
     /**
      * Handles the form submission of adding a new user.
@@ -39,7 +39,14 @@ const AddUser = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        console.log(`Name: ${username} Age: ${age}`, "AddUser.js");
+        const userData = {
+            username: username,
+            age: age
+        }
+
+        onSaveUserData(userData);
+
+        // console.log(`Name: ${username} Age: ${age}`, "AddUser.js");
     };
 
     return (
@@ -54,6 +61,8 @@ const AddUser = () => {
                         onChange={userNameHandler}
                     />
 
+                    <br />
+
                     <label>Age (Years)</label>
                     <input
                         min="1"
@@ -62,6 +71,8 @@ const AddUser = () => {
                         type="number"
                         onChange={userAgeHandler}
                     />
+
+                    <br />
 
                     <button type="submit">Add User</button>
                 </form>

@@ -5,16 +5,20 @@ import AddUser from './components/AddUser/AddUser';
 import logo from './logo.svg';
 
 function App() {
+  const addUserHandler = (user) => {
+    console.log(user, "App.js");
+  };
+
   return (
     <>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
 
-          <p>Test</p>
-
           {/* Form */}
-          <AddUser />
+          <AddUser
+            onSaveUserData={addUserHandler}
+          />
 
           {/* List */}
         </header>
