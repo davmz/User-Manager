@@ -1,5 +1,7 @@
 import './App.css';
 
+import AddUser from './components/AddUser/AddUser';
+
 import logo from './logo.svg';
 
 function App() {
@@ -10,14 +12,12 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
 
           <p>Test</p>
+
+          {/* Form */}
+          <AddUser />
+
+          {/* List */}
         </header>
-      </div>
-
-      <div>
-        {/* Form */}
-        
-
-        {/* List */}
       </div>
     </>
   );
