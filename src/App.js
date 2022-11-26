@@ -1,12 +1,22 @@
+import { useState } from 'react';
+
 import './App.css';
+import logo from './logo.svg';
 
 import AddUser from './components/AddUser/AddUser';
 
-import logo from './logo.svg';
-
 function App() {
+  const [users, setUsers] = useState([]);
+
+  /**
+   * Handles the user object from child component.
+   * 
+   * @param {User Data Object} user 
+   */
   const addUserHandler = (user) => {
-    console.log(user, "App.js");
+    setUsers((prevUsers) => {
+      return [user, ...prevUsers];
+    });
   };
 
   return (
