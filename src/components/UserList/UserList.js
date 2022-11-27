@@ -1,4 +1,6 @@
-import UserCard from "./UserCard";
+import Card from "../UI/Card";
+
+import classes from "./UserList.module.css";
 
 /**
  * Returns the User List Component.
@@ -8,16 +10,15 @@ import UserCard from "./UserCard";
 const UserList = ({ users }) => {
     return (
         <>
-            <ul>
-                {/* Loop through object and pass values to another child component */}
-                {users.map((user) => (
-                    <UserCard
-                        age={user.age}
-                        username={user.username}
-                        key={`${user.username} ${user.age}`}
-                    />
-                ))}
-            </ul>
+            <Card className={classes.users}>
+                <ul>
+                    {users.map((user) => (
+                        <li key={user.id}>
+                            {user.name} ({user.age} year{user.age > 1 ? 's' : ''} old)
+                        </li>
+                    ))} 
+                </ul>
+            </Card>  
         </>
     );
 }

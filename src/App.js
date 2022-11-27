@@ -1,8 +1,5 @@
 import { useState } from 'react';
 
-import './App.css';
-import logo from './logo.svg';
-
 import AddUser from './components/AddUser/AddUser';
 import UserList from './components/UserList/UserList';
 
@@ -14,26 +11,18 @@ function App() {
    * 
    * @param {User Data Object} user 
    */
-  const addUserHandler = (user) => {
+  const addUserHandler = (name, age) => {
     setUsers((prevUsers) => {
-      return [user, ...prevUsers];
+      return [...prevUsers, { name: name, age: age, id: Math.random().toString() }];
     });
   };
 
   return (
     <>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div>
+          <AddUser onSaveUserData={addUserHandler} />
 
-          {/* Form */}
-          <AddUser
-            onSaveUserData={addUserHandler}
-          />
-
-          {/* List */}
           {users.length > 0 && <UserList users={users} />}
-        </header>
       </div>
     </>
   );
