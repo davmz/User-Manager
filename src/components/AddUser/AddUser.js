@@ -58,6 +58,7 @@ const AddUser = ({ onSaveUserData }) => {
                 <form onSubmit={submitHandler}>
                     <label>Username</label>
                     <input
+                        required
                         type="text"
                         id="username"
                         name="username"
@@ -72,6 +73,7 @@ const AddUser = ({ onSaveUserData }) => {
                     <input
                         min="1"
                         id="age"
+                        required
                         name="age"
                         value={age}
                         type="number"

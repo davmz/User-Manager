@@ -1,3 +1,5 @@
+import UserCard from "./UserCard";
+
 /**
  * Returns the User List Component.
  *
@@ -9,9 +11,11 @@ const UserList = ({ users }) => {
             <ul>
                 {/* Loop through object and pass values to another child component */}
                 {users.map((user) => (
-                    <p key={`${user.username} ${user.age}`} >
-                        {user.username} ({user.age} {user.age > 1 ? 'years' : 'year'} old)
-                    </p>
+                    <UserCard
+                        age={user.age}
+                        username={user.username}
+                        key={`${user.username} ${user.age}`}
+                    />
                 ))}
             </ul>
         </>
